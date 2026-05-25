@@ -1,0 +1,32 @@
+{
+  "project": "",
+  "repo_path": "",
+  "archaeology_version": "1.0",
+  "status": "in_progress",
+  "phases": {
+    "recon": {
+      "status": "pending",
+      "git_history_included": null,
+      "completed_at": null
+    },
+    "strawman": {
+      "status": "pending",
+      "presented_at": null
+    },
+    "elicitation": {
+      "status": "pending",
+      "turns": 0,
+      "items_confirmed": 0,
+      "items_open": 0,
+      "completed_at": null
+    },
+    "output": {
+      "status": "pending",
+      "docs_generated": [],
+      "agent_docs_generated": [],
+      "completed_at": null
+    }
+  },
+  "entry_point_after": null,
+  "notes": ""
+}
