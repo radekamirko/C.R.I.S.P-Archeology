@@ -4,7 +4,11 @@
 
 > *"Your codebase is the brief."*
 
-A companion to [CRISP](https://github.com/mirkoradeka/crisp) — the open-source framework for scoping and speccing AI projects. Archaeology is the entry point for projects that already have code but no docs.
+A companion to [CRISP](https://github.com/radekamirko/C.R.I.S.P) — the open-source framework for scoping and speccing AI projects. Archaeology is the entry point for projects that already have code but no docs.
+
+---
+
+## → [START HERE](./START_HERE.md)
 
 ---
 
@@ -66,20 +70,6 @@ After Archaeology completes, the project is in the same state as a project that 
 
 ---
 
-## Usage
-
-Point Claude at this skill and a repo path:
-
-```
-Run CRISP Archaeology on /path/to/repo
-```
-
-Claude will ask one question (git history scope), then start recon.
-
-**Skill location:** `.claude/skills/crisp-archaeology/SKILL.md`
-
----
-
 ## Part of the CRISP ecosystem
 
 ```
@@ -87,11 +77,23 @@ Standard CRISP:    Phase R → Phase I → Phase S → Sprints
 CRISP Archaeology: Scan → Elicitation → docs/ → Phase S or Sprints
 ```
 
-- [CRISP](https://github.com/mirkoradeka/crisp) — the main framework
+- [CRISP](https://github.com/radekamirko/C.R.I.S.P) — the main framework
 - CRISP Archaeology (this repo) — entry point for existing codebases
+
+---
+
+## Built by Mileva
+
+CRISP Archaeology is part of the CRISP open-source ecosystem, built by [Mileva](https://mileva.io) — an AI automation agency that builds workflow systems replacing entire operational teams.
+
+**Questions, PRs, or war stories from the field:** open an issue or find me on [X @radekamirko](https://x.com/radekamirko).
 
 ---
 
 ## Status
 
 🚧 v1.0 — skill and templates complete, not yet battle-tested on a real repo.
+
+---
+
+*Outcome first. Always.*
