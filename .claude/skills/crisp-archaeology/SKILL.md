@@ -1,6 +1,6 @@
 # CRISP Archaeology — SKILL.md
 
-**Version:** 1.0  
+**Version:** 1.1  
 **Entry point:** User says "run archaeology on [path]" or "start CRISP Archaeology"
 
 ---
@@ -36,12 +36,20 @@ Read the repo in this order:
    ```
    Note: lifecycle shape — ramp-up, plateau, abandonment, revival?
 4. **Last 50 commit messages** — current vocabulary, what's broken, what's changing
-5. **Last 10 closed PRs** (if GitHub) — same signal, richer context
+5. **Last 10 closed PRs** — same signal, richer context. Access via:
+   - GitHub: `gh pr list --state merged --limit 10`
+   - Bitbucket: `git log --merges --oneline -10` or check Bitbucket PR UI / API
+   - GitLab: `glab mr list --state merged --limit 10`
+   - If no CLI access: skip and note as 🔓 gap
 6. **Dependency manifests** — `package.json`, `requirements.txt`, `go.mod`, `Gemfile`, `pom.xml`, etc. This is ground truth for tech stack, not the README
 7. **Entry points** — `main.py`, `index.ts`, `Dockerfile CMD`, `start` script. Trace 2 levels outward only. Do not read the whole codebase
 8. **Folder structure** — read as an org chart. Folders map to bounded contexts or teams
-9. **CI/CD config** — `.github/workflows`, `.gitlab-ci.yml`, etc. Surfaces deployment story, environments, test maturity
-10. **Issue/PR labels** (if GitHub) — product taxonomy, business domains
+9. **CI/CD config** — `.github/workflows`, `.gitlab-ci.yml`, `bitbucket-pipelines.yml`, `Jenkinsfile`, etc. Surfaces deployment story, environments, test maturity
+10. **Issue/PR labels and issue tracker** — product taxonomy, business domains. Access via:
+    - GitHub: issue labels in the repo
+    - Bitbucket: labels on PRs; issues often live in Jira — ask the user for Jira access or a project export
+    - GitLab: issue labels in the project
+    - If no access: note as 🔓 gap, ask user to describe main product areas
 11. **Test files** (skim, not source) — describe intent. `test_invoice_generation.py` > reading the invoice module
 12. **Existing docs** — treat as unverified. Note what they claim, flag for confirmation
 
