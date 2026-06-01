@@ -1,6 +1,6 @@
 # CRISP Archaeology — SKILL.md
 
-**Version:** 1.1  
+**Version:** 1.2  
 **Entry point:** User says "run archaeology on [path]" or "start CRISP Archaeology"
 
 ---
@@ -149,7 +149,7 @@ Continue until no ❓ remain (all are either ✅ or 🔓).
 
 | File | What it is |
 |---|---|
-| `CLAUDE.md` | Root orientation. What this is, what matters, conventions, what never to touch, how to run tests, how to commit. Dense, declarative, imperative. |
+| `CLAUDE.md` | Root orientation. What this is, what matters, conventions, what never to touch, how to run tests, how to commit. Dense, declarative, imperative. Include the CRISP security baseline block (secrets, auth, Bearer, AGT if agents present, SkillSpector if skills present) — copy from `templates/agent/CLAUDE.md`. |
 | `ARCHITECTURE.md` | Text version of the architecture map. Structured for grepping, not reading. |
 | `SECURITY.md` | Auth model, PII boundaries, secrets handling, things-the-agent-must-never-do. Rules, not policy. |
 | `DEPLOYMENT.md` | Environments, deploy commands, rollback, env vars, infra. Operational, not architectural. |
@@ -157,9 +157,47 @@ Continue until no ❓ remain (all are either ✅ or 🔓).
 | `GLOSSARY.md` | Same as domain glossary — standalone so it can be linked from CLAUDE.md. |
 | `[dir]/CLAUDE.md` | Per-directory context. What this module owns, what it must never do, special rules. Generate for every top-level module/service directory. |
 
-#### After generation:
-- Write `crisp-state.json` marking Archaeology as complete, entry point set to Phase S or Sprint
-- Present the output summary to the user
+#### After generation — write crisp-state.json:
+
+Update `crisp-state.json` with the following fields on completion:
+
+```json
+{
+  "mode": "archaeology",
+  "status": "complete",
+  "phases": {
+    "recon": { "status": "complete" },
+    "strawman": { "status": "complete" },
+    "elicitation": { "status": "complete" },
+    "output": {
+      "status": "complete",
+      "completed_at": "[ISO date]"
+    }
+  },
+  "handoffs": {
+    "archaeology_complete": true,
+    "ready_for_execute": true,
+    "entry_point_after": "[phase-s OR crisp-execute]"
+  },
+  "artifacts": {
+    "docs_generated": ["system-overview", "architecture-map", "..."],
+    "agent_docs_generated": ["CLAUDE.md", "SECURITY.md", "..."],
+    "confidence_summary": {
+      "confirmed": N,
+      "inferred": N,
+      "cannot_recover": N,
+      "open": N
+    }
+  }
+}
+```
+
+**Entry point decision:**
+- If the project has no existing sprint plan → set `entry_point_after: "phase-s"` (needs spec before build)
+- If a sprint plan exists and the owner wants to go straight to execution → set `entry_point_after: "crisp-execute"`
+
+Then present the output summary:
+> "Archaeology complete. Here's what I produced: [list docs + agent docs]. Open questions remaining: [N — see docs/open-questions.md]. Recommended next step: [Phase S to complete the spec / CRISP Execute to start building]."
 
 ---
 
@@ -220,4 +258,5 @@ When the user invokes Archaeology:
 4. Present the strawman (Phase 2)
 5. Run elicitation turns (Phase 3)
 6. Generate output (Phase 4)
-7. Summarize what's ✅ complete, what's 🔓 open, and recommended next step (Phase S or Sprint)
+7. Write `crisp-state.json` with archaeology complete + handoff signals
+8. Summarize what's ✅ complete, what's 🔓 open, and recommended next step (Phase S or CRISP Execute)

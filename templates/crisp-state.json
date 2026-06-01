@@ -1,20 +1,34 @@
 {
+  "_meta": {
+    "version": "2.0",
+    "description": "CRISP Archaeology state — updated as archaeology progresses. Read this first. Do not edit manually — updated by the crisp-archaeology skill.",
+    "updatedAt": "",
+    "updatedBy": "crisp-archaeology"
+  },
+
   "project": "",
   "repo_path": "",
-  "archaeology_version": "1.0",
+  "archaeology_version": "1.1",
+
+  "mode": "archaeology",
+
   "status": "in_progress",
+
   "phases": {
     "recon": {
       "status": "pending",
+      "_status_options": ["pending", "in_progress", "complete"],
       "git_history_included": null,
       "completed_at": null
     },
     "strawman": {
       "status": "pending",
+      "_status_options": ["pending", "in_progress", "presented", "complete"],
       "presented_at": null
     },
     "elicitation": {
       "status": "pending",
+      "_status_options": ["pending", "in_progress", "complete"],
       "turns": 0,
       "items_confirmed": 0,
       "items_open": 0,
@@ -22,11 +36,49 @@
     },
     "output": {
       "status": "pending",
-      "docs_generated": [],
-      "agent_docs_generated": [],
+      "_status_options": ["pending", "in_progress", "complete"],
       "completed_at": null
     }
   },
-  "entry_point_after": null,
+
+  "handoffs": {
+    "archaeology_complete": false,
+    "ready_for_execute": false,
+    "entry_point_after": null,
+    "_entry_point_options": ["phase-s", "crisp-execute", "sprint-1"]
+  },
+
+  "artifacts": {
+    "docs_generated": [],
+    "agent_docs_generated": [],
+    "_docs_options": [
+      "system-overview",
+      "architecture-map",
+      "tech-stack",
+      "domain-glossary",
+      "business-context",
+      "risk-register",
+      "feature-inventory",
+      "decisions",
+      "open-questions",
+      "runbook-skeleton"
+    ],
+    "_agent_docs_options": [
+      "CLAUDE.md",
+      "ARCHITECTURE.md",
+      "SECURITY.md",
+      "DEPLOYMENT.md",
+      "CONVENTIONS.md",
+      "dir-CLAUDE.md"
+    ],
+    "confidence_summary": {
+      "confirmed": 0,
+      "inferred": 0,
+      "cannot_recover": 0,
+      "open": 0
+    }
+  },
+
+  "open_questions": [],
   "notes": ""
 }
