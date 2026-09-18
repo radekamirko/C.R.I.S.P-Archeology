@@ -84,7 +84,7 @@ CRISP Archaeology: Scan → Elicitation → docs/ → Phase S or Sprints
 
 ## Built by Mileva
 
-CRISP Archaeology is part of the CRISP open-source ecosystem, built by [Mileva](https://mileva.io) — an AI automation agency that builds workflow systems replacing entire operational teams.
+CRISP Archaeology is part of the CRISP open-source ecosystem, built by [Mileva](https://mileva.io) — an AI automation agency that builds workflow systems replacing entire operational teams. Also if you want to learn more about product drive AI development [Mirko Radeka](https://www.mirkoradeka.com)) 
 
 **Questions, PRs, or war stories from the field:** open an issue or find me on [X @radekamirko](https://x.com/radekamirko).
 
